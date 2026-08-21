@@ -14,7 +14,153 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      affiliate_clicks: {
+        Row: {
+          created_at: string
+          id: string
+          referrer: string | null
+          target_key: string
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          referrer?: string | null
+          target_key: string
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          referrer?: string | null
+          target_key?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          locale: string
+          message: string
+          name: string
+          replied_at: string | null
+          reply: string | null
+          status: string
+          subject: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          locale?: string
+          message: string
+          name: string
+          replied_at?: string | null
+          reply?: string | null
+          status?: string
+          subject: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          locale?: string
+          message?: string
+          name?: string
+          replied_at?: string | null
+          reply?: string | null
+          status?: string
+          subject?: string
+        }
+        Relationships: []
+      }
+      failed_tasks: {
+        Row: {
+          attempts: number
+          created_at: string
+          error_code: string
+          id: string
+          last_attempt_at: string
+          payload_reference: string
+          status: string
+          task_type: string
+          updated_at: string
+        }
+        Insert: {
+          attempts?: number
+          created_at?: string
+          error_code: string
+          id?: string
+          last_attempt_at?: string
+          payload_reference: string
+          status?: string
+          task_type: string
+          updated_at?: string
+        }
+        Update: {
+          attempts?: number
+          created_at?: string
+          error_code?: string
+          id?: string
+          last_attempt_at?: string
+          payload_reference?: string
+          status?: string
+          task_type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      infra_requests: {
+        Row: {
+          account_status: string
+          contact_email: string | null
+          created_at: string
+          domain: string
+          id: string
+          locale: string
+          notes: string | null
+          org: string
+          replied_at: string | null
+          reply: string | null
+          stack: string
+          status: string
+          ticket: string
+        }
+        Insert: {
+          account_status?: string
+          contact_email?: string | null
+          created_at?: string
+          domain: string
+          id?: string
+          locale?: string
+          notes?: string | null
+          org: string
+          replied_at?: string | null
+          reply?: string | null
+          stack: string
+          status?: string
+          ticket: string
+        }
+        Update: {
+          account_status?: string
+          contact_email?: string | null
+          created_at?: string
+          domain?: string
+          id?: string
+          locale?: string
+          notes?: string | null
+          org?: string
+          replied_at?: string | null
+          reply?: string | null
+          stack?: string
+          status?: string
+          ticket?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
