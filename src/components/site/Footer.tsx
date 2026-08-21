@@ -11,12 +11,14 @@ import { Arrow, actionClass } from "@/components/site/Layout";
 type Item = { label: string; page?: PageKey; href?: string };
 
 /** Technische kanalen — strikt monospace metadata, geen social icons. */
-const CHANNELS: { label: string; value: string; href: string }[] = [
-  { label: "GITHUB", value: "jdelplanche", href: "https://github.com/jdelplanche" },
+const CHANNELS: { label: string; value: string; href: string; external?: boolean }[] = [
+  { label: "GITHUB", value: "delplanche/cloud", href: "https://github.com/delplanche/cloud", external: true },
+  { label: "REPOSITORIES", value: "delplanche", href: "https://github.com/delplanche", external: true },
   {
     label: "MATRIX",
     value: "@jona:delplanche.cloud",
     href: "https://matrix.to/#/@jona:delplanche.cloud",
+    external: true,
   },
   { label: "PGP KEY", value: "9F3C 21A7 D4B8 6E05", href: "/pgp.asc" },
 ];
