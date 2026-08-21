@@ -1,5 +1,6 @@
 import { Monitor, Network, Warehouse } from "lucide-react";
-import { LocaleLink, type Dict } from "@/i18n";
+import { LocaleLink, useLocale, type Dict } from "@/i18n";
+import { getAnnotations } from "@/i18n/annotations";
 import {
   Arrow,
   Container,
@@ -8,10 +9,13 @@ import {
   actionClassMuted,
 } from "@/components/site/Layout";
 import { CloudLink } from "@/components/site/CloudLink";
+import { Marginalia } from "@/components/site/Marginalia";
 
 const flowIcons = [Monitor, Network, Warehouse];
 
 export function HomePage({ t }: { t: Dict }) {
+  const notes = getAnnotations(useLocale());
+
   const scrollToStacks = () =>
     document.getElementById("stacks")?.scrollIntoView({ behavior: "smooth", block: "start" });
 
