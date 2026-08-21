@@ -29,11 +29,10 @@ describe("design tokens", () => {
 });
 
 describe("paper surfaces", () => {
-  it("keeps dossier sheets softly rounded (editorial/biophilic aesthetic)", () => {
-    const panel = css.slice(css.indexOf("@utility blueprint-panel"));
-    expect(panel.slice(0, 200)).toMatch(/border-radius:\s*1\.5rem/);
-    const vault = css.slice(css.indexOf("@utility vault-frame"));
-    expect(vault.slice(0, 200)).toMatch(/border-radius:\s*1\.25rem/);
+  it("keeps dossier sheets organically framed (sketch-frame aesthetic)", () => {
+    const frame = css.slice(css.indexOf("@utility sketch-frame"));
+    expect(frame.slice(0, 300)).toMatch(/border:\s*1px solid var\(--gridline\)/);
+    expect(frame.slice(0, 300)).toMatch(/border-radius:\s*22px 26px 20px 28px/);
     expect(css).toMatch(/--radius-lg:\s*14px/);
     expect(css).toMatch(/--radius-xl:\s*18px/);
   });
@@ -44,9 +43,17 @@ describe("paper surfaces", () => {
     expect(stamp.slice(0, 300)).toMatch(/box-shadow:\s*inset/);
   });
 
-  it("provides fold-divider and datastamp utilities", () => {
-    expect(css).toContain("@utility fold-divider");
-    expect(css).toContain("@utility datastamp");
+  it("provides the terracotta marginalia annotation layer", () => {
+    expect(css).toContain("@utility margin-note");
+    const note = css.slice(css.indexOf("@utility margin-note"));
+    expect(note.slice(0, 300)).toMatch(/font-family:\s*var\(--font-hand\)/);
+    expect(note.slice(0, 300)).toMatch(/color:\s*var\(--terracotta\)/);
+  });
+
+  it("no longer ships the retired blueprint/vault frames", () => {
+    expect(css).not.toContain("@utility blueprint-panel");
+    expect(css).not.toContain("@utility vault-frame");
+    expect(css).not.toContain("@utility hand-note");
   });
 });
 
@@ -70,12 +77,19 @@ describe("components", () => {
     expect(nav).toContain("pointerdown");
   });
 
-  it("footer keeps the square colophon frame, copy vector and channel grid", () => {
-    expect(footer).toContain("vault-frame");
+  it("footer keeps the muted colophon, copy vector and channel grid", () => {
     expect(footer).toContain("core@delplanche.cloud");
-    expect(footer).not.toContain("J.Z.D.");
-    expect(footer).toContain("rounded-2xl");
+    expect(footer).not.toContain("vault-frame");
     expect(footer).toContain("sm:grid-cols-3");
     expect(footer).toContain("footer-channels");
+  });
+
+  it("footer carries the transparent stewardship statement in muted mono", () => {
+    expect(footer).toContain("footer-stewardship");
+    expect(footer).toContain("notes.stewardship");
+    expect(footer).toMatch(/footer-stewardship[\s\S]{0,200}text-muted-ink/);
+    const annotations = read("src/i18n/annotations.ts");
+    expect(annotations).toContain("Transparant Stewardship");
+    expect(annotations).toContain("zonder extra kosten");
   });
 });
