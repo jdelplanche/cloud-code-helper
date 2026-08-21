@@ -84,12 +84,23 @@ describe("components", () => {
     expect(footer).toContain("footer-channels");
   });
 
-  it("footer carries the transparent stewardship statement in muted mono", () => {
+  it("footer carries a compact stewardship colophon in muted mono", () => {
     expect(footer).toContain("footer-stewardship");
     expect(footer).toContain("notes.stewardship");
     expect(footer).toMatch(/footer-stewardship[\s\S]{0,200}text-muted-ink/);
     const annotations = read("src/i18n/annotations.ts");
-    expect(annotations).toContain("Transparant Stewardship");
+    expect(annotations).toContain("Stewardship —");
     expect(annotations).toContain("zonder extra kosten");
+    // Colophon: kort houden, geen blokkerige copy.
+    for (const line of annotations.split("\n").filter((l) => l.includes("Stewardship —"))) {
+      expect(line.length).toBeLessThan(180);
+    }
+  });
+
+  it("github channels point to the delplanche organisation", () => {
+    expect(footer).toContain("https://github.com/delplanche/cloud");
+    expect(footer).toContain("https://github.com/delplanche\"");
+    expect(footer).not.toContain("jdelplanche");
+    expect(footer).not.toContain("[ {c.value} ]");
   });
 });
