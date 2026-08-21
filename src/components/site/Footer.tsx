@@ -62,7 +62,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-gridline">
-      <div className="mx-auto w-full max-w-6xl px-6 py-10 md:px-10 md:py-20">
+      <div className="mx-auto w-full max-w-6xl px-6 py-14 md:px-10 md:py-24">
         <div className="grid gap-9 md:grid-cols-[1.1fr_2fr] md:gap-16">
           <div>
             <BrandMark className="font-mono text-[12px] font-medium tracking-[0.16em] text-ebony" />
@@ -96,7 +96,7 @@ export function Footer() {
           {/* Mobiel: accordeons */}
           <div className="divide-y divide-gridline border-y border-gridline sm:hidden">
             {columns.map((col) => (
-              <details key={col.title} className="group py-4">
+              <details key={col.title} className="group py-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between font-mono text-[10px] font-semibold tracking-[0.2em] text-ebony uppercase">
                   {col.title}
                   <span className="text-muted-ink transition-transform group-open:rotate-45">
