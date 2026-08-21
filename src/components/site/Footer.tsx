@@ -130,7 +130,17 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="vault-frame mt-4 flex flex-col gap-1 rounded-2xl px-4 py-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-1">
+        <div className="mt-4 flex flex-col gap-3 border-t border-gridline pt-5">
+          <p
+            data-testid="footer-stewardship"
+            className="max-w-3xl font-mono text-[10px] leading-[1.9] tracking-[0.06em] text-muted-ink"
+          >
+            {notes.stewardship}
+          </p>
+          <Marginalia rotate={-1}>{notes.hosting}</Marginalia>
+        </div>
+
+        <div className="mt-5 flex flex-col gap-1 border-t border-gridline pt-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-1">
           <span className="font-mono text-[9px] leading-[1.6] tracking-[0.18em] text-muted-ink uppercase">
             // © 2026 delplanche.cloud
           </span>
@@ -139,11 +149,15 @@ export function Footer() {
           </span>
           <span className="font-mono text-[9px] leading-[1.6] tracking-[0.18em] text-muted-ink uppercase">
             {t.footer.impressum}{" "}
-            <LocaleLink page="legal" className="text-ebony underline-offset-2 hover:underline">
+            <LocaleLink
+              page="legal"
+              className="text-muted-ink underline underline-offset-2 transition-colors hover:text-ebony"
+            >
               {t.footer.impressumLink}
             </LocaleLink>
           </span>
         </div>
+
       </div>
     </footer>
   );
