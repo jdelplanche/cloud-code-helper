@@ -62,9 +62,15 @@ export function HomePage({ t }: { t: Dict }) {
             );
           })}
         </ol>
-        <p className="mt-5 font-mono text-[9.5px] tracking-[0.16em] text-muted-ink uppercase">
-          {t.home.flowFooter}
-        </p>
+        <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+          <p className="font-mono text-[9.5px] tracking-[0.16em] text-muted-ink uppercase">
+            {t.home.flowFooter}
+          </p>
+          <Marginalia rotate={-1} className="sm:text-right">
+            {notes.flow}
+          </Marginalia>
+        </div>
+
       </section>
 
       {/* STACKS */}
