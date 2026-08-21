@@ -1,5 +1,6 @@
 import { Monitor, Network, Warehouse } from "lucide-react";
-import { LocaleLink, type Dict } from "@/i18n";
+import { LocaleLink, useLocale, type Dict } from "@/i18n";
+import { getAnnotations } from "@/i18n/annotations";
 import {
   Arrow,
   Container,
@@ -8,10 +9,13 @@ import {
   actionClassMuted,
 } from "@/components/site/Layout";
 import { CloudLink } from "@/components/site/CloudLink";
+import { Marginalia } from "@/components/site/Marginalia";
 
 const flowIcons = [Monitor, Network, Warehouse];
 
 export function HomePage({ t }: { t: Dict }) {
+  const notes = getAnnotations(useLocale());
+
   const scrollToStacks = () =>
     document.getElementById("stacks")?.scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -58,9 +62,15 @@ export function HomePage({ t }: { t: Dict }) {
             );
           })}
         </ol>
-        <p className="mt-5 font-mono text-[9.5px] tracking-[0.16em] text-muted-ink uppercase">
-          {t.home.flowFooter}
-        </p>
+        <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+          <p className="font-mono text-[9.5px] tracking-[0.16em] text-muted-ink uppercase">
+            {t.home.flowFooter}
+          </p>
+          <Marginalia rotate={-1} className="sm:text-right">
+            {notes.flow}
+          </Marginalia>
+        </div>
+
       </section>
 
       {/* STACKS */}
@@ -71,12 +81,16 @@ export function HomePage({ t }: { t: Dict }) {
           lead={t.home.stacksLead}
         />
         <div className="mt-10 divide-y divide-gridline border-t border-gridline md:grid md:grid-cols-3 md:gap-10 md:divide-y-0 md:border-t md:pt-10">
-          {t.stacks.map((s) => (
+          {t.stacks.map((s, i) => (
             <div key={s.id} className="flex flex-col py-8 md:py-0">
               <span className="font-mono text-[10px] tracking-[0.22em] text-muted-ink">{s.id}</span>
               <h3 className="mt-4 text-xl leading-tight text-ebony md:text-2xl">{s.title}</h3>
               <p className="mt-2.5 text-sm leading-relaxed text-muted-ink">{s.for}</p>
+              <Marginalia rotate={i % 2 === 0 ? -1.4 : 1.2} className="mt-4">
+                {notes.stacks[i] ?? notes.hosting}
+              </Marginalia>
               <ul className="mt-5 space-y-2">
+
                 {s.specs.map((spec) => (
                   <li key={spec} className="font-mono text-[11px] leading-relaxed text-muted-ink">
                     {spec}

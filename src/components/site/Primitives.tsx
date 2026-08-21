@@ -103,7 +103,7 @@ export function ActionAnchor({
 }
 
 export function Panel({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <div className={cn("blueprint-panel p-7 md:p-10", className)}>{children}</div>;
+  return <div className={cn("sketch-frame p-7 md:p-10", className)}>{children}</div>;
 }
 
 export function PageShell({
