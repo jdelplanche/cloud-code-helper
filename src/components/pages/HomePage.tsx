@@ -47,7 +47,7 @@ export function HomePage({ t }: { t: Dict }) {
           {t.home.flowNodes.map((node, i) => {
             const Icon = flowIcons[i] ?? Monitor;
             return (
-              <li key={node[0]} className="bg-canvas p-6">
+              <li key={node[0]} className="bg-canvas p-7 md:p-8">
                 <div className="flex items-center justify-between gap-3">
                   <span className="font-mono text-[9px] tracking-[0.22em] text-muted-ink uppercase">
                     {node[0]}
@@ -66,7 +66,7 @@ export function HomePage({ t }: { t: Dict }) {
           <p className="font-mono text-[9.5px] tracking-[0.16em] text-muted-ink uppercase">
             {t.home.flowFooter}
           </p>
-          <Marginalia rotate={-1} className="sm:text-right">
+          <Marginalia rotate={-1} className="mt-1 ml-1 sm:mt-0 sm:ml-0 sm:text-right">
             {notes.flow}
           </Marginalia>
         </div>
@@ -86,7 +86,7 @@ export function HomePage({ t }: { t: Dict }) {
               <span className="font-mono text-[10px] tracking-[0.22em] text-muted-ink">{s.id}</span>
               <h3 className="mt-4 text-xl leading-tight text-ebony md:text-2xl">{s.title}</h3>
               <p className="mt-2.5 text-sm leading-relaxed text-muted-ink">{s.for}</p>
-              <Marginalia rotate={i % 2 === 0 ? -1.4 : 1.2} className="mt-4">
+              <Marginalia rotate={i % 2 === 0 ? -1.4 : 1.2} className="mt-5 ml-1 sm:ml-5">
                 {notes.stacks[i] ?? notes.hosting}
               </Marginalia>
               <ul className="mt-5 space-y-2">

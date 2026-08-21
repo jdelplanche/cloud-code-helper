@@ -151,7 +151,7 @@ test.describe("mobiele kerncomponenten", () => {
     const channels = page.getByTestId("footer-channels");
     await channels.scrollIntoViewIfNeeded();
     await expect(channels).toBeVisible();
-    await expect(channels.locator("a")).toHaveCount(3);
+    await expect(channels.locator("a")).toHaveCount(4);
 
     const frame = page.locator("footer .vault-frame");
     const height = (await frame.boundingBox())!.height;

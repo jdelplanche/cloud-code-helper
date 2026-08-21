@@ -11,11 +11,11 @@ export function GatewayPage({ locale }: { locale: Locale }) {
     <PageShellLite index={p.index} title={p.title} lead={p.lead}>
       <section>
         <SectionTitle index={p.hubIndex} title={p.hubTitle} lead={p.hubLead} />
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-8 md:grid-cols-2">
           {p.links.map((node, i) => (
             <article
               key={node.code}
-              className="flex flex-col rounded-2xl border border-gridline bg-card px-5 py-6 md:px-7 md:py-8"
+              className="flex flex-col rounded-2xl border border-gridline bg-card px-6 py-7 md:px-9 md:py-10"
             >
               <div className="flex items-center justify-between gap-4">
                 <span className="font-mono text-[10px] tracking-[0.22em] text-muted-ink">
@@ -53,7 +53,7 @@ export function GatewayPage({ locale }: { locale: Locale }) {
 
       <section>
         <SectionTitle index={p.noteIndex} title={p.noteTitle} />
-        <div className="mt-8 rounded-2xl border border-gridline bg-card px-5 py-6 md:px-7 md:py-8">
+        <div className="mt-8 rounded-2xl border border-gridline bg-card px-6 py-7 md:px-9 md:py-10">
           <p className="max-w-3xl text-sm leading-relaxed text-muted-ink">{p.note}</p>
           <Link
             to="/$lang/$slug"
