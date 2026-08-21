@@ -3,7 +3,10 @@ import { CopyAction } from "@/components/site/CopyAction";
 import { LocaleLink, useDict, useLocale } from "@/i18n";
 import { getExtraDict } from "@/i18n/extra";
 import type { PageKey } from "@/i18n/config";
+import { getAnnotations } from "@/i18n/annotations";
+import { Marginalia } from "@/components/site/Marginalia";
 import { Arrow, actionClass } from "@/components/site/Layout";
+
 
 type Item = { label: string; page?: PageKey; href?: string };
 
