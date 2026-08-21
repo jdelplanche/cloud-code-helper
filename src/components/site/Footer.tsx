@@ -117,7 +117,7 @@ export function Footer() {
 
         <div
           data-testid="footer-channels"
-          className="mt-10 grid grid-cols-1 divide-y divide-gridline border border-gridline sm:grid-cols-3 sm:divide-x sm:divide-y-0 md:mt-14"
+          className="mt-14 grid grid-cols-1 divide-y divide-gridline border-y border-gridline sm:grid-cols-2 md:mt-20 md:grid-cols-4 md:divide-x md:divide-y-0"
         >
           {CHANNELS.map((c) => (
             <a
@@ -125,26 +125,36 @@ export function Footer() {
               href={c.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col gap-1.5 px-4 py-3.5 transition-colors hover:bg-ebony/[0.03]"
+              className="group flex items-baseline justify-between gap-4 px-5 py-5 transition-colors hover:bg-ebony/[0.03] sm:px-6 sm:py-6"
             >
-              <span className="font-mono text-[9px] tracking-[0.2em] text-muted-ink uppercase">
-                // {c.label}
+              <span className="flex flex-col gap-2">
+                <span className="font-mono text-[9px] tracking-[0.2em] text-muted-ink uppercase">
+                  {c.label}
+                </span>
+                <span className="font-mono text-[11px] tracking-[0.06em] text-ebony">{c.value}</span>
               </span>
-              <span className="font-mono text-[11px] tracking-[0.08em] text-ebony">
-                [ {c.value} ]
-              </span>
+              {c.external ? (
+                <span
+                  aria-hidden="true"
+                  className="font-mono text-[11px] text-muted-ink transition-colors group-hover:text-terracotta"
+                >
+                  ↗
+                </span>
+              ) : null}
             </a>
           ))}
         </div>
 
-        <div className="mt-4 flex flex-col gap-3 border-t border-gridline pt-5">
+        <div className="mt-8 flex flex-col gap-5 pt-2 md:mt-10">
           <p
             data-testid="footer-stewardship"
-            className="max-w-3xl font-mono text-[10px] leading-[1.9] tracking-[0.06em] text-muted-ink"
+            className="max-w-2xl font-mono text-[10px] leading-[1.9] tracking-[0.06em] text-muted-ink"
           >
             {notes.stewardship}
           </p>
-          <Marginalia rotate={-1}>{notes.hosting}</Marginalia>
+          <Marginalia rotate={-1} className="ml-1 sm:ml-6">
+            {notes.hosting}
+          </Marginalia>
         </div>
 
         <div className="mt-5 flex flex-col gap-1 border-t border-gridline pt-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-1">
