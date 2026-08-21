@@ -1,5 +1,5 @@
 import { FileDown } from "lucide-react";
-import { ActionButton } from "@/components/site/Primitives";
+import { ActionButton } from "@/components/site/Layout";
 
 export function DossierDownload({ label = "Download dossier (PDF)" }: { label?: string }) {
   return (

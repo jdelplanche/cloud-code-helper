@@ -188,3 +188,19 @@ export function ComparisonTable({
     </div>
   );
 }
+
+/** Tactiele actie-knop (moss-variant) — gebruikt voor dossier-downloads. */
+const actionButtonClass =
+  "group stamp-press inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-moss bg-card px-6 py-3 font-mono text-[10px] tracking-[0.18em] text-moss uppercase transition-colors hover:bg-moss/[0.07] disabled:opacity-50";
+
+export function ActionButton({
+  children,
+  className,
+  ...rest
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  return (
+    <button className={cn(actionButtonClass, className)} {...rest}>
+      {children}
+    </button>
+  );
+}
