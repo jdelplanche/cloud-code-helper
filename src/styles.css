@@ -100,38 +100,6 @@
   }
 }
 
-/* Heavy rag paper sheet resting on the limestone canvas */
-@utility blueprint-panel {
-  border: 1px solid var(--gridline);
-  border-radius: 1.5rem;
-  background-color: var(--card);
-  box-shadow: var(--paper-shadow);
-}
-
-@utility vault-frame {
-  border: 1px solid var(--gridline-strong);
-  border-radius: 1.25rem;
-  background-color: color-mix(in oklab, var(--canvas) 88%, var(--card));
-  box-shadow: var(--paper-shadow);
-}
-
-@utility rule-strong {
-  border-color: var(--gridline-strong);
-}
-
-/* Paper fold / tear line between stacked register rows */
-@utility fold-divider {
-  border-top: 1px dashed color-mix(in oklab, var(--gridline-strong) 70%, transparent);
-}
-
-/* Datastamp: pressed into the paper rather than floating on it */
-@utility datastamp {
-  border: 1px solid color-mix(in oklab, var(--moss) 20%, transparent);
-  border-radius: 999px;
-  background-color: color-mix(in oklab, var(--moss) 5%, var(--canvas));
-  box-shadow: inset 0 1px 2px rgba(44, 62, 53, 0.06);
-}
-
 
 /* Tactile stamp interaction for primary actions */
 @utility stamp-press {
@@ -155,25 +123,6 @@
 
   @media (width >= 48rem) {
     letter-spacing: 0.16em;
-  }
-}
-
-@utility atelier-input {
-  width: 100%;
-  border: 0;
-  border-bottom: 1px solid var(--gridline);
-  background-color: transparent;
-  padding: 0.6rem 0;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--ebony);
-  outline: none;
-  transition: border-color 200ms ease;
-  &::placeholder {
-    color: color-mix(in oklab, var(--muted-ink) 70%, transparent);
-  }
-  &:focus {
-    border-bottom-color: var(--moss);
   }
 }
 
@@ -273,21 +222,3 @@
 }
 
 
-/* Handgeschreven marginalia in Caveat — editorial annotatie */
-@utility hand-note {
-  font-family: var(--font-hand);
-  font-size: 1.0625rem;
-  line-height: 1.45;
-  color: color-mix(in oklab, var(--moss) 78%, var(--muted-ink));
-}
-
-/* Getekend blaadje/kiem als sectiescheiding */
-@utility leaf-divider {
-  display: block;
-  height: 22px;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 132px 22px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='132' height='22' viewBox='0 0 132 22'%3E%3Cg fill='none' stroke='%235C7A66' stroke-opacity='.5' stroke-width='1.1' stroke-linecap='round'%3E%3Cpath d='M2 12c14 2 30 1 44-1'/%3E%3Cpath d='M86 11c14 2 30 1 44-1'/%3E%3Cpath d='M66 19c-7-3-10-8-9-13 6 1 10 5 10 10 1-6 5-9 11-9 0 6-4 11-12 12z'/%3E%3C/g%3E%3C/svg%3E");
-}
