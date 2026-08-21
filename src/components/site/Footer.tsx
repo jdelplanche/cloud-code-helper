@@ -24,6 +24,8 @@ const CHANNELS: { label: string; value: string; href: string }[] = [
 export function Footer() {
   const t = useDict();
   const locale = useLocale();
+  const notes = getAnnotations(locale);
+
 
   const columns: { title: string; items: Item[] }[] = [
     {
